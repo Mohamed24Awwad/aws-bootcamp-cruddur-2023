@@ -148,7 +148,29 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Message'
-
+  /api/activities/notifications:
+    post:
+      description: 'return activities notifications for all my followers'
+      tags:
+        - activities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_receiver_handle:
+                  type: string
+      responses:
+        '200':
+          description: Return activities notifications for users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
 components:
   schemas:
     Activity:
